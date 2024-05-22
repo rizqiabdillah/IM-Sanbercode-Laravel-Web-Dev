@@ -21,3 +21,15 @@ Route::get('/', [HomeController::class, 'utama']);
 Route::get('/register', [AuthController::class, 'daftar']);
 
 Route::post('/welcome', [AuthController::class, 'welcome']);
+
+// Route::get('/master', function(){
+//     return view('layouts.master');
+// });
+Route::get('/table', function() {
+    return view('page.Table');
+});
+
+
+Route::get('/data-table', function() {
+    return view('page.dataTable');
+});
