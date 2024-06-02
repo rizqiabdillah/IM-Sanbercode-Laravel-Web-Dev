@@ -14,11 +14,8 @@ return new class extends Migration
         Schema::create('peran', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('film_id');
-            $table->foreignId('film_id')->references('id')->on('film');
-
-            $table->unsignedBigInteger('cast_id');
-            $table->foreignId('cast_id')->references('id')->on('cast');
+            $table->foreignId('film_id')->constrained('film');  
+            $table->foreignId('cast_id')->constrained('cast');
             $table->timestamps();
         });
     }

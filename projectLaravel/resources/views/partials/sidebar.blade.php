@@ -65,7 +65,64 @@
                 </a> --}}
               </li>
             </ul>
-          </li>       
+          </li> 
+          
+          <li class="nav-item">
+            <a href="/cast" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Cast
+              </p>
+            </a>
+          </li>
+
+          @auth
+            
+          
+          <li class="nav-item">
+            <a href="/genre" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Genre
+              </p>
+            </a>
+          </li>
+          @endauth
+          
+          <li class="nav-item">
+            <a href="/film" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Film
+              </p>
+            </a>
+          </li>
+
+          @guest
+          <li class="nav-item bg-info">
+            <a href="/login" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Login
+              </p>
+            </a>
+          </li>
+          @endguest
+          @auth
+          
+          <li class="nav-item bg-danger" >
+            <a class="nav-link " href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+          </li>
+
+          @endauth
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

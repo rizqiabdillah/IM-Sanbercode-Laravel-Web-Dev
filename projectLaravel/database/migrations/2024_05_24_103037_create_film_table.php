@@ -18,8 +18,7 @@ return new class extends Migration
             $table->integer('tahun');
             $table->string('poster');
 
-            $table->unsignedBigInteger('genre_id');
-            $table->foreignId('genre_id')->references('id')->on('genre');
+            $table->foreignId('genre_id')->constrained('genre');
             $table->timestamps();
         });
     }
